@@ -5,14 +5,15 @@ Created by Janna Lei Eugenio
 """
 
 
+# Get budget
 def get_budget():
     while True:
         try:
             amount = float(input("How much money do you have?: $"))
-            if amount:
+            if amount:    # If valid - return amount
                 return amount
             break
-        # Checks if input is blank or contains string
+        # If input contains string or is blank - print error message
         except ValueError:
             print("Please input a valid amount (must not contain letters or be"
                   " blank)\n")
