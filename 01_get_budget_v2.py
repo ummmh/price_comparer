@@ -1,11 +1,11 @@
 """Component 1 of Price Comparer
 Get budget from user - checking if input is not blank or a string
 Created by Janna Lei Eugenio
-28/07/2021 - Version 2
+28/07/2021 - Version 2 - create function
 """
 
 
-# Get budget
+# Get budget function
 def get_budget():
     while True:
         try:
