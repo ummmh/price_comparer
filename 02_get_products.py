@@ -9,11 +9,11 @@ product_list = []
 
 while True:
     product = input("Enter product name: ").title()
-    if product == "X":
+    if product == "X":  # If the input is x - ends list
         break
     mass = float(input("Enter volume of product (g/ml): "))
     price = float(input("Enter price of product: $"))
     print()
-    product_list.append([product, mass, price])
+    product_list.append([product, mass, price])  # Adds product, mass & price to list
 
 print(product_list)
