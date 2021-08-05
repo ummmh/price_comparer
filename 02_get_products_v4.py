@@ -26,23 +26,23 @@ def not_blank(question, string, error):
 # Get volume function
 def get_volume():
     # The expected format for the volume input
-    volume_regex = r"([0-9]+)([a-z]+)"
+    volume_regex = r"(\d+(?:\.\d+)?)(\w+)"
 
     while True:
         entry = not_blank("Volume: ", True, "Please enter a valid number")
         mass = re.match(volume_regex, entry)
         if mass:
-            amount = float(mass.group(1))
-            unit = mass.group(2)
+            amount = float(mass.group(1))          # If input matches the regex
+            unit = mass.group(2)                   # splits it into amount and unit
             product_mass = (amount, unit)
-            if unit == "g" or unit == "kg" or unit == "ml":
-                return product_mass
+            if unit == "g" or unit == "kg" or unit == "ml":   # Only accepts g,
+                return product_mass                           # kg or ml
             else:
                 print("Invalid unit (please only enter g, kg, or ml")
-                continue
+                continue                              # Re-asks if invalid unit
         else:
-            try:
-                product_mass = entry.split()
+            try:                               # If it doesn't match the regex:
+                product_mass = entry.split()   # tries to split into amount and unit
                 amount = float(product_mass[0])
                 unit = product_mass[1]
                 product_mass = (amount, unit)
@@ -51,7 +51,7 @@ def get_volume():
                 else:
                     print("Invalid unit (please only enter g, kg, or ml")
                     continue
-            except ValueError:
+            except ValueError:                        # re-asks if invalid input
                 print("Please enter a valid amount")
 
 
