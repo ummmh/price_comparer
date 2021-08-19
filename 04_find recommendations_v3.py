@@ -15,9 +15,9 @@ def find_recommended(list1):
             recommended.append(product)
         else:                     # keeps checking until recommended found
             continue
-    if len(recommended) > 1:
+    if len(recommended) > 1: # if theres more than one item in recommended
         recommended = find_multiple(recommended, 3, "rec")
-        return recommended
+        return recommended  # finds the items with best unit price
     else:
         return recommended
 
@@ -34,12 +34,13 @@ def find_multiple(list1, check, find):
         amount = list1[0][2]  # amount = highest price
     else:
         list1.sort(key=lambda row: row[3])  # sorts list by unit price
-        amount = list1[0][3]
+        amount = list1[0][3]  # amount = best unit price
 
+    # checks how many items in list is equal to set amount
     for item in list1:
         if item[check] == amount:
             list2.append(item)
-        else:
+        else:  # breaks loop if there are none left
             break
     return list2
 
@@ -67,10 +68,12 @@ recommendation = find_multiple(product_list, 3, "rec")
 print("CHEAPEST: ", cheapest)
 print("MOST EXPENSIVE: ", expensive)
 print("BEST VALUE: ", recommendation)
+
+# in case the best value is higher than budget
 if recommendation[0][2] > budget:
     print("\nWARNING! Item with best value is higher than your budget!")
     recommendation = find_recommended(product_list)
-    if recommendation is None:
+    if recommendation is None:  # if there's no recommended
         print("There is no items that fit your budget!")
     else:
         print("RECOMMENDED: ", recommendation)
