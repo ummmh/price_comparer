@@ -71,22 +71,24 @@ def find_recommended(list1):
 
 # Find multiple recommendations
 def find_multiple(list1, check, find):
-    list2 = []
+    list3 = []
 
     if find == "cheap": # sorts the list by cheapest price
         low = sorted(list1, key=lambda row: row[2])
         amount = low[0][2]  # amount = lowest price
+        list2 = low
     else:  # sorts the list by highest price
         high = sorted(list1, key=lambda row: row[2], reverse=True)
         amount = high[0][2]  # amount = highest price
+        list2 = high
 
     # checks how many items in list is equal to set amount
-    for item in list1:
+    for item in list2:
         if item[check] == amount:
-            list2.append(item)
+            list3.append(item)
         else:  # breaks loop if there are none left
             break
-    return list2
+    return list3
 
 
 # Main Routine
