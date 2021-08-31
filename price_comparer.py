@@ -73,7 +73,7 @@ def find_recommended(list1):
 def find_multiple(list1, check, find):
     list3 = []
 
-    if find == "cheap": # sorts the list by cheapest price
+    if find == "cheap":  # sorts the list by cheapest price
         low = sorted(list1, key=lambda row: row[2])
         amount = low[0][2]  # amount = lowest price
         list2 = low
@@ -118,7 +118,7 @@ for product in product_list:
     # find the mass in the list
     mass = product[1][0]
     # converting the weight to kg
-    if product[1][1] == 'g' or product[1][1] == 'ml': # if mass in g or ml
+    if product[1][1] == 'g' or product[1][1] == 'ml':  # if mass in g or ml
         # noinspection PyTypeChecker
         unit_weight = mass / 1000
     else:                                  # if its already in kg leave as is
@@ -132,7 +132,7 @@ for product in product_list:
 cheapest = find_multiple(product_list, 2, "cheap")
 expensive = find_multiple(product_list, 2, "x")
 # sorts list by unit price and price - first item is recommended
-recommendation = sorted(product_list, key=lambda row: (row[3], row [2]))[0]
+recommendation = sorted(product_list, key=lambda row: (row[3], row[2]))[0]
 
 # End summary
 print("---------------------------END SUMMARY--------------------------------")
